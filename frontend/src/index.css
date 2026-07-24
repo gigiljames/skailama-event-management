@@ -1,0 +1,46 @@
+:root {
+  --skailama-purple: #6952e0;
+  --skailama-lightgrey: #f6f7f9;
+  --border-color: rgb(212, 212, 212);
+}
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}

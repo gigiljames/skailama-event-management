@@ -1,0 +1,12 @@
+.create-event__container {
+  background-color: white;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.create-event__container h3 {
+  margin: 0;
+  margin-bottom: 20px;
+}

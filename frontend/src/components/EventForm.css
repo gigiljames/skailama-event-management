@@ -1,0 +1,31 @@
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.event-form__input-label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.event-form__input {
+  background-color: var(--skailama-lightgrey);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.event-form__button {
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: var(--skailama-purple);
+  color: whitesmoke;
+}

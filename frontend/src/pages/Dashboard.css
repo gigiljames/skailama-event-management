@@ -1,0 +1,31 @@
+.dashboard__main-container {
+  background-color: var(--skailama-lightgrey);
+  height: 100vh;
+  width: 100%;
+  padding: 2rem 15rem;
+}
+
+.dashboard__main-section {
+  width: 100%;
+  gap: 20px;
+}
+
+.dashboard__heading-container {
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.dashboard__heading-text {
+  gap: 10px;
+}
+
+.dashboard__heading-container .dashboard__main-heading {
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+.dashboard__heading-container .dashboard__subheading {
+  color: gray;
+  font-weight: 500;
+}

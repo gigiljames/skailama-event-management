@@ -1,0 +1,30 @@
+.events__container {
+  background-color: white;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.events__container h3 {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.events__input-label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.events__input {
+  background-color: var(--skailama-lightgrey);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.events__event-container {
+}

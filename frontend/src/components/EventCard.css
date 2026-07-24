@@ -1,0 +1,34 @@
+.event-card__container {
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.event-card__user-icon {
+  color: #6952e0;
+}
+
+.event-card__icon-container {
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-card__button-group {
+  width: 100%;
+  gap: 10px;
+}
+
+.event-card__button-group button {
+  width: 100%;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid var(--border-color);
+  background-color: var(--skailama-lightgrey);
+  gap: 10px;
+  font-weight: 600;
+}
