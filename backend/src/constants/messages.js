@@ -22,4 +22,5 @@ export const MESSAGES = {
     INVALID_ENV: "ENV Error: Invalid environment variables.",
   },
   BAD_REQUEST: "Bad request.",
+  SOMETHING_WENT_WRONG: "Something went wrong.",
 };

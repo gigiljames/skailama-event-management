@@ -7,6 +7,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import { createProfile } from "../services/profileService.js";
 import { addProfile } from "../state/profileSlice.js";
 import { LuPlus } from "react-icons/lu";
+import toast from "react-hot-toast";
 
 function ProfileDropdown({
   selectedProfiles,
@@ -25,17 +26,24 @@ function ProfileDropdown({
 
   function handleAddProfile() {
     if (profileName && profileName.trim()) {
-      createProfile(profileName).then((response) => {
-        if (response.success) {
-          const profile = response.data;
-          dispatch(addProfile({ id: profile.id, name: profile.name }));
-          setIsAddOpen(false);
-          setProfileName("");
-          if (!multiselect && !currentProfile) {
-            setSelectedProfile(profile.id);
+      createProfile(profileName)
+        .then((response) => {
+          if (response.success) {
+            const profile = response.data;
+            dispatch(addProfile({ id: profile.id, name: profile.name }));
+            setIsAddOpen(false);
+            setProfileName("");
+            if (!multiselect && !currentProfile) {
+              setSelectedProfile(profile.id);
+            }
+          } else {
+            toast.error(response.message);
           }
-        }
-      });
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong.");
+        });
     }
   }
 

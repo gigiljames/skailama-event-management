@@ -45,6 +45,8 @@
 
 .logs-modal__log-list {
   gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 @media (max-width: 992px) {

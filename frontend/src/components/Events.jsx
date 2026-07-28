@@ -10,20 +10,9 @@ import toast from "react-hot-toast";
 import { TIMEZONES } from "../constants/timezones.js";
 
 function Events() {
-  // const ev = {
-  //   id: 1,
-  //   profiles: [
-  //     { id: 1, name: "User1" },
-  //     { id: 2, name: "User2" },
-  //   ],
-  //   timezone: "Asia/Kolkata",
-  //   startAt: new Date(),
-  //   endAt: new Date(),
-  //   createdAt: new Date(),
-  //   updatesAt: new Date(),
-  // };
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isLogsOpen, setIsLogsOpen] = useState(false);
+  const [eventsReload, setEventsReload] = useState(0);
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState(null);
   const [selectedTimezone, setSelectedTimezone] = useState(TIMEZONES[0].value);
@@ -35,21 +24,27 @@ function Events() {
           .then((response) => {
             if (response.success) {
               setEvents(response.data);
+            } else {
+              toast.error(response.message);
             }
           })
-          .catch((e) => {
-            console.log(e);
-            toast.error("An unexpected error occured.");
+          .catch((error) => {
+            console.log(error);
+            toast.error("Something went wrong.");
           });
       }
     }
     fetchEvents();
-  }, [currentProfile, selectedTimezone]);
+  }, [currentProfile, selectedTimezone, eventsReload]);
 
   return (
     <>
       {isEditOpen && (
-        <EditEventModal event={event} setIsEditOpen={setIsEditOpen} />
+        <EditEventModal
+          event={event}
+          setIsEditOpen={setIsEditOpen}
+          setEventsReload={setEventsReload}
+        />
       )}
       {isLogsOpen && event && (
         <LogsModal eventId={event.id} setIsLogsOpen={setIsLogsOpen} />

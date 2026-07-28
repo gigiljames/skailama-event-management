@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import { TIMEZONES } from "../constants/timezones.js";
 import { LuCalendar, LuClock4 } from "react-icons/lu";
 
-function EventForm({ mode, event, setIsOpen }) {
+function EventForm({ mode, event, setIsOpen, setEventsReload }) {
   const [selectedProfiles, setSelectedProfile] = useState([]);
   const [selectedTimezone, setSelectedTimezone] = useState(TIMEZONES[0].value);
   const [startDate, setStartDate] = useState("");
@@ -49,35 +49,46 @@ function EventForm({ mode, event, setIsOpen }) {
       endAt: new Date(`${endDate}T${endTime}`),
     };
     if (mode === "create") {
-      createEvent(eventData).then((response) => {
-        if (response.success) {
-          toast.success(response.message);
-          setSelectedProfile([]);
-          setSelectedTimezone(TIMEZONES[0].value);
-          setStartDate("");
-          setStartTime("");
-          setEndDate("");
-          setEndTime("");
-        } else {
-          toast.error(response.message);
-        }
-      });
+      createEvent(eventData)
+        .then((response) => {
+          if (response.success) {
+            toast.success(response.message);
+            setSelectedProfile([]);
+            setSelectedTimezone(TIMEZONES[0].value);
+            setStartDate("");
+            setStartTime("");
+            setEndDate("");
+            setEndTime("");
+          } else {
+            toast.error(response.message);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong.");
+        });
     } else if (mode === "edit") {
       console.log(event);
-      updateEvent(event.id, eventData).then((response) => {
-        if (response.success) {
-          toast.success(response.message);
-          setSelectedProfile([]);
-          setSelectedTimezone(TIMEZONES[0].value);
-          setStartDate("");
-          setStartTime("");
-          setEndDate("");
-          setEndTime("");
-          setIsOpen(false);
-        } else {
-          toast.error(response.message);
-        }
-      });
+      updateEvent(event.id, eventData)
+        .then((response) => {
+          if (response.success) {
+            toast.success(response.message);
+            setSelectedProfile([]);
+            setSelectedTimezone(TIMEZONES[0].value);
+            setStartDate("");
+            setStartTime("");
+            setEndDate("");
+            setEndTime("");
+            setIsOpen(false);
+            setEventsReload((prev) => prev + 1);
+          } else {
+            toast.error(response.message);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong.");
+        });
     }
   }
   return (

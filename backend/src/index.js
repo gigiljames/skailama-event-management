@@ -4,6 +4,7 @@ import ProfileRoute from "./routes/profile.route.js";
 import EventRoute from "./routes/event.route.js";
 import { env } from "./config/env.config.js";
 import { connectDB } from "./config/db.config.js";
+import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddleware.js";
 
 const app = express();
 
@@ -15,6 +16,8 @@ const profileRoutes = new ProfileRoute();
 
 app.use("/", eventRoutes.router);
 app.use("/", profileRoutes.router);
+
+app.use(errorHandlerMiddleware);
 
 connectDB()
   .then(() => {

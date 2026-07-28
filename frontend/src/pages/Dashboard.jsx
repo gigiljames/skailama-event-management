@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CreateEvent from "../components/CreateEvent";
 import Events from "../components/Events";
 import "./Dashboard.css";
@@ -6,14 +6,24 @@ import { getProfiles } from "../services/profileService.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setProfiles, setCurrentProfile } from "../state/profileSlice.js";
 import ProfileDropdown from "../components/ProfileDropdown.jsx";
+import toast from "react-hot-toast";
 
 function Dashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
-    getProfiles().then((response) => {
-      dispatch(setProfiles(response.data));
-      console.log(response.data);
-    });
+    getProfiles()
+      .then((response) => {
+        if (response.success) {
+          dispatch(setProfiles(response.data));
+          console.log(response.data);
+        } else {
+          toast.error(response.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong.");
+      });
   }, [dispatch]);
   const currentProfile = useSelector((state) => state.profiles.currentProfile);
   const setSelectedProfile = (value) => {

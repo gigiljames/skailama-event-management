@@ -8,20 +8,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 function validateStartEndTime(startAt, endAt) {
-  const current = dayjs();
-  // if (dayjs(startAt).isBefore(current)) {
-  //   throw new CustomError(
-  //     HTTP_STATUS_CODES.BAD_REQUEST,
-  //     MESSAGES.EVENT.START_TIME_IN_PAST,
-  //   );
-  // }
-  // if (dayjs(endAt).isBefore(current)) {
-  //   throw new CustomError(
-  //     HTTP_STATUS_CODES.BAD_REQUEST,
-  //     MESSAGES.EVENT.END_TIME_IN_PAST,
-  //   );
-  // }
-  if (!dayjs(endAt).isAfter(dayjs(startAt))) {
+  if (dayjs(endAt).isBefore(dayjs(startAt))) {
     throw new CustomError(
       HTTP_STATUS_CODES.BAD_REQUEST,
       MESSAGES.EVENT.END_BEFORE_START,

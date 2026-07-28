@@ -18,9 +18,9 @@ function LogsModal({ eventId, setIsLogsOpen }) {
           toast.error(response.message);
         }
       })
-      .catch((e) => {
-        console.log(e);
-        toast.error("An unexpected error occurred.");
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong.");
       });
   }, [eventId]);
 
