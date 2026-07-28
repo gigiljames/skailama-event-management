@@ -2,13 +2,10 @@
   border: 1px solid var(--border-color);
   padding: 15px;
   border-radius: 10px;
+  gap: 12px;
 }
 
 .event-card__user-icon {
-  color: #6952e0;
-}
-
-.event-card__icon-container {
   padding: 5px;
   height: 30px;
   width: 30px;
@@ -16,6 +13,74 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #6952e0;
+}
+
+.event-card__profiles {
+  gap: 10px;
+  font-weight: 600;
+}
+
+.event-card__profiles p {
+  margin: 0;
+}
+
+.event-card__date-group {
+  gap: 5px;
+}
+
+.event-card__row {
+  gap: 10px;
+}
+
+.event-card__hr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.event-card__date {
+  margin: 0;
+  font-weight: 600;
+}
+
+.event-card__time {
+  margin: 0;
+  color: gray;
+  gap: 5px;
+}
+
+.event-card__time-icon {
+  font-size: 14px;
+}
+
+.event-card__icon-container {
+  padding: 5px;
+  height: 27px;
+  width: 27px;
+  font-size: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-card__calendar-icon {
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.event-card__info-group {
+  gap: 10px;
+}
+
+.event-card__info-group p {
+  margin: 0;
+  font-size: 14px;
+  color: gray;
 }
 
 .event-card__button-group {
@@ -31,4 +96,5 @@
   background-color: var(--skailama-lightgrey);
   gap: 10px;
   font-weight: 600;
+  cursor: pointer;
 }

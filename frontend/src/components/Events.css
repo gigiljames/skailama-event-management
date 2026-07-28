@@ -6,17 +6,24 @@
   border: 1px solid var(--border-color);
 }
 
+.events__inner-container {
+  gap: 15px;
+}
+
 .events__container h3 {
   margin: 0;
-  margin-bottom: 20px;
 }
 
 .events__input-label {
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.events__input-label span {
   font-size: 14px;
   font-weight: 600;
+  margin: 0;
 }
 
 .events__input {
@@ -27,4 +34,7 @@
 }
 
 .events__event-container {
+  gap: 10px;
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
 }

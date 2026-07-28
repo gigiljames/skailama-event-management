@@ -2,7 +2,8 @@
   background-color: var(--skailama-lightgrey);
   height: 100vh;
   width: 100%;
-  padding: 2rem 15rem;
+  overflow-y: auto;
+  padding: 2% 15%;
 }
 
 .dashboard__main-section {
@@ -28,4 +29,22 @@
 .dashboard__heading-container .dashboard__subheading {
   color: gray;
   font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .dashboard__main-section {
+    flex-direction: column;
+  }
+
+  .dashboard__main-container {
+    padding: 2% 10%;
+  }
+
+  .dashboard__heading-container .dashboard__main-heading {
+    font-size: 30px;
+  }
+
+  .dashboard__heading-container .dashboard__subheading {
+    font-size: 16px;
+  }
 }

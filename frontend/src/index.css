@@ -1,7 +1,12 @@
 :root {
   --skailama-purple: #6952e0;
+  --skailama-input-purple: #9470db;
   --skailama-lightgrey: #f6f7f9;
   --border-color: rgb(212, 212, 212);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
