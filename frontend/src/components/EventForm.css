@@ -53,6 +53,7 @@
   font-size: 14px;
   background-color: var(--skailama-purple);
   color: whitesmoke;
+  cursor: pointer;
 }
 
 .event-form__button:hover {
