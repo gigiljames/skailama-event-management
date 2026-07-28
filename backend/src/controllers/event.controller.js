@@ -18,8 +18,8 @@ export default class EventController {
           MESSAGES.BAD_REQUEST,
         );
       }
-      const timezone = req.query.timezone || "";
-      const events = await this.eventService.fetchEvents(profileId, timezone);
+      // const timezone = req.query.timezone || "";
+      const events = await this.eventService.fetchEvents(profileId);
       HttpResponseBuilder.buildSuccessResponse(
         req,
         res,

@@ -22,8 +22,8 @@ export default class EventService {
     this.logRepository = logRepository;
   }
 
-  async fetchEvents(profileId, timezone) {
-    const events = await this.eventRepository.fetchEvents(profileId, timezone);
+  async fetchEvents(profileId) {
+    const events = await this.eventRepository.fetchEvents(profileId);
     return events;
   }
 

@@ -8,7 +8,13 @@ import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-function EventCard({ event, setIsEditOpen, setIsLogsOpen, setEvent }) {
+function EventCard({
+  event,
+  setIsEditOpen,
+  setIsLogsOpen,
+  setEvent,
+  timezone,
+}) {
   return (
     <>
       <div className="event-card__container flex flex-col">
@@ -26,14 +32,13 @@ function EventCard({ event, setIsEditOpen, setIsLogsOpen, setEvent }) {
           </div>
           <div className="flex flex-col event-card__date-group">
             <p className="event-card__date">
-              Start:{" "}
-              {dayjs(event.startAt).tz(event.timezone).format("MMM D, YYYY")}
+              Start: {dayjs(event.startAt).tz(timezone).format("MMM D, YYYY")}
             </p>
             <p className="event-card__time flex items-center">
               <div className="event-card__time-icon">
                 <LuClock4 />
               </div>
-              {dayjs(event.startAt).tz(event.timezone).format("hh:mm A")}
+              {dayjs(event.startAt).tz(timezone).format("hh:mm A")}
             </p>
           </div>
         </div>
@@ -43,14 +48,13 @@ function EventCard({ event, setIsEditOpen, setIsLogsOpen, setEvent }) {
           </div>
           <div className="flex flex-col event-card__date-group">
             <p className="event-card__date">
-              Start:{" "}
-              {dayjs(event.endAt).tz(event.timezone).format("MMM D, YYYY")}
+              Start: {dayjs(event.endAt).tz(timezone).format("MMM D, YYYY")}
             </p>
             <p className="event-card__time flex items-center">
               <div className="event-card__time-icon">
                 <LuClock4 />
               </div>
-              {dayjs(event.endAt).tz(event.timezone).format("hh:mm A")}
+              {dayjs(event.endAt).tz(timezone).format("hh:mm A")}
             </p>
           </div>
         </div>
@@ -59,13 +63,13 @@ function EventCard({ event, setIsEditOpen, setIsLogsOpen, setEvent }) {
           <p>
             Created:{" "}
             {dayjs(event.createdAt)
-              .tz(event.timezone)
+              .tz(timezone)
               .format("MMM D, YYYY [at] hh:mm A")}
           </p>
           <p>
             Updated:{" "}
             {dayjs(event.updatedAt)
-              .tz(event.timezone)
+              .tz(timezone)
               .format("MMM D, YYYY [at] hh:mm A")}
           </p>
         </div>

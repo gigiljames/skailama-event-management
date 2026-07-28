@@ -6,9 +6,9 @@ export const createEvent = async (event) => {
   return response.data;
 };
 
-export const getEvents = async (profileId, timezone) => {
+export const getEvents = async (profileId) => {
   const response = await axiosInstance.get(
-    `${ROUTES.EVENT.GET_EVENTS.replace(":profileId", profileId)}?timezone=${timezone}`,
+    `${ROUTES.EVENT.GET_EVENTS.replace(":profileId", profileId)}`,
   );
   return response.data;
 };

@@ -45,8 +45,16 @@ function EventForm({ mode, event, setIsOpen, setEventsReload }) {
     const eventData = {
       profiles: selectedProfiles,
       timezone: selectedTimezone,
-      startAt: new Date(`${startDate}T${startTime}`),
-      endAt: new Date(`${endDate}T${endTime}`),
+      startAt: dayjs.tz(
+        `${startDate} ${startTime}`,
+        "YYYY-MM-DD HH:mm",
+        selectedTimezone,
+      ),
+      endAt: dayjs.tz(
+        `${endDate} ${endTime}`,
+        "YYYY-MM-DD HH:mm",
+        selectedTimezone,
+      ),
     };
     if (mode === "create") {
       createEvent(eventData)

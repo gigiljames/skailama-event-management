@@ -6,7 +6,7 @@ import { getEventLogs } from "../services/eventService.js";
 import toast from "react-hot-toast";
 import { LuClock4 } from "react-icons/lu";
 
-function LogsModal({ eventId, setIsLogsOpen }) {
+function LogsModal({ eventId, setIsLogsOpen, timezone }) {
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,9 @@ function LogsModal({ eventId, setIsLogsOpen }) {
               <div className="flex flex-col logs-modal__log-card">
                 <div className="flex items-center logs-modal__log-time">
                   <LuClock4 className="logs-modal__log-time-icon" />
-                  {dayjs(log.createdAt).format("MMM D, YYYY [at] hh:mm A")}
+                  {dayjs(log.createdAt)
+                    .tz(timezone)
+                    .format("MMM D, YYYY [at] hh:mm A")}
                 </div>
                 <div className="logs-modal__message">{log.message}</div>
               </div>

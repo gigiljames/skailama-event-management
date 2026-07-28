@@ -19,8 +19,8 @@ function Events() {
   const currentProfile = useSelector((state) => state.profiles.currentProfile);
   useEffect(() => {
     function fetchEvents() {
-      if (currentProfile && selectedTimezone) {
-        getEvents(currentProfile, selectedTimezone)
+      if (currentProfile) {
+        getEvents(currentProfile)
           .then((response) => {
             if (response.success) {
               setEvents(response.data);
@@ -47,7 +47,11 @@ function Events() {
         />
       )}
       {isLogsOpen && event && (
-        <LogsModal eventId={event.id} setIsLogsOpen={setIsLogsOpen} />
+        <LogsModal
+          eventId={event.id}
+          setIsLogsOpen={setIsLogsOpen}
+          timezone={selectedTimezone}
+        />
       )}
       <div className="events__container">
         <div className="events__inner-container flex flex-col">
@@ -68,6 +72,7 @@ function Events() {
                 setIsLogsOpen={setIsLogsOpen}
                 setEvent={setEvent}
                 key={ev.id}
+                timezone={selectedTimezone}
               />
             ))}
           </div>
