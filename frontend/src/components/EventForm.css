@@ -9,8 +9,12 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
+}
+
+.event-form__input-label span {
   font-size: 14px;
   font-weight: 600;
+  margin: 0;
 }
 
 .event-form__input {
@@ -18,6 +22,7 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid var(--border-color);
+  width: 100%;
 }
 
 .event-form__button {
@@ -28,4 +33,21 @@
   font-size: 14px;
   background-color: var(--skailama-purple);
   color: whitesmoke;
+}
+
+.event-form__date-time {
+  width: 100%;
+  gap: 10px;
+}
+
+.event-form__date-input {
+  width: 100%;
+}
+
+.event-form__time-input {
+  width: 150px;
+}
+
+.event-form__date-time input {
+  padding-left: 35px;
 }
