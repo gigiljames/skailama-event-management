@@ -6,13 +6,16 @@ import { FiSearch } from "react-icons/fi";
 import { IoMdCheckmark } from "react-icons/io";
 import { createProfile } from "../services/profileService.js";
 import { addProfile } from "../state/profileSlice.js";
+import { LuPlus } from "react-icons/lu";
 
 function ProfileDropdown({
   selectedProfiles,
   setSelectedProfile,
   multiselect = true,
 }) {
-  const { profiles, nameIdMap } = useSelector((state) => state.profiles);
+  const { profiles, nameIdMap, currentProfile } = useSelector(
+    (state) => state.profiles,
+  );
   const [localProfiles, setLocalProfiles] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -28,6 +31,9 @@ function ProfileDropdown({
           dispatch(addProfile({ id: profile.id, name: profile.name }));
           setIsAddOpen(false);
           setProfileName("");
+          if (!multiselect && !currentProfile) {
+            setSelectedProfile(profile.id);
+          }
         }
       });
     }
@@ -129,19 +135,30 @@ function ProfileDropdown({
                 </div>
               ))}
             </div>
-            <div className="flex">
+            <div className="flex profile-dropdown__add-container items-center">
               {isAddOpen ? (
                 <>
                   <input
                     type="text"
                     placeholder="Profile name"
                     value={profileName}
+                    className="profile-dropdown__add-input"
                     onChange={(e) => setProfileName(e.target.value)}
                   />
-                  <button onClick={handleAddProfile}>Add</button>
+                  <button
+                    onClick={handleAddProfile}
+                    className="profile-dropdown__add-button"
+                  >
+                    Add
+                  </button>
                 </>
               ) : (
-                <button onClick={() => setIsAddOpen(true)}>Add profile</button>
+                <button
+                  className="profile-dropdown__add-profile-button flex"
+                  onClick={() => setIsAddOpen(true)}
+                >
+                  <LuPlus /> Add profile
+                </button>
               )}
             </div>
           </div>

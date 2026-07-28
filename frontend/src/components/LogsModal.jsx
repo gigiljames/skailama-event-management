@@ -38,8 +38,8 @@ function LogsModal({ eventId, setIsLogsOpen }) {
           <div className="logs-modal__log-list flex flex-col">
             {logs.map((log) => (
               <div className="flex flex-col logs-modal__log-card">
-                <div className="flex items-center">
-                  <LuClock4 />
+                <div className="flex items-center logs-modal__log-time">
+                  <LuClock4 className="logs-modal__log-time-icon" />
                   {dayjs(log.createdAt).format("MMM D, YYYY [at] hh:mm A")}
                 </div>
                 <div className="logs-modal__message">{log.message}</div>

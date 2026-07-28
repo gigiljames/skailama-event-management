@@ -10,6 +10,7 @@ dayjs.extend(timezone);
 import { createEvent, updateEvent } from "../services/eventService.js";
 import toast from "react-hot-toast";
 import { TIMEZONES } from "../constants/timezones.js";
+import { LuCalendar, LuClock4 } from "react-icons/lu";
 
 function EventForm({ mode, event, setIsOpen }) {
   const [selectedProfiles, setSelectedProfile] = useState([]);
@@ -98,20 +99,24 @@ function EventForm({ mode, event, setIsOpen }) {
         </label>
         <label className="event-form__input-label">
           <span>Start Date & Time</span>
-          <div className="flex event-form__date-time">
-            <input
-              type="date"
-              placeholder="Select profiles"
-              className="event-form__input event-form__date-input"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              min={dayjs().format("YYYY-MM-DD")}
-            />
-            <div className="event-form__time-input">
+          <div className=" flex event-form__date-time">
+            <div className="flex event-form__input items-center">
+              <LuCalendar />
+              <input
+                type="date"
+                placeholder="Select profiles"
+                className=" event-form__date-input"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                min={dayjs().format("YYYY-MM-DD")}
+              />
+            </div>
+            <div className="event-form__input event-form__time-input flex items-center">
+              <LuClock4 className="event-form__clock_icon" />
               <input
                 type="time"
                 placeholder="Select profiles"
-                className="event-form__input"
+                className="event-form__time-input"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
               />
@@ -121,19 +126,23 @@ function EventForm({ mode, event, setIsOpen }) {
         <label className="event-form__input-label">
           <span>End Date & Time</span>
           <div className="flex event-form__date-time">
-            <input
-              type="date"
-              placeholder="Select profiles"
-              className="event-form__input event-form__date-input"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              min={startDate || dayjs().format("YYYY-MM-DD")}
-            />
-            <div className="event-form__time-input">
+            <div className="event-form__input flex items-center">
+              <LuCalendar />
+              <input
+                type="date"
+                placeholder="Select profiles"
+                className=" event-form__date-input"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                min={startDate || dayjs().format("YYYY-MM-DD")}
+              />
+            </div>
+            <div className="event-form__input event-form__time-input flex items-center">
+              <LuClock4 className="event-form__clock_icon" />
               <input
                 type="time"
                 placeholder="Select profiles"
-                className="event-form__input"
+                className="event-form__time-input"
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
               />

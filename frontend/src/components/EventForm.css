@@ -19,10 +19,30 @@
 
 .event-form__input {
   background-color: var(--skailama-lightgrey);
-  padding: 10px;
+  padding: 0px 10px;
   border-radius: 5px;
   border: 1px solid var(--border-color);
   width: 100%;
+  gap: 10px;
+  height: 40px;
+}
+
+.event-form__input input {
+  background-color: transparent;
+  border: 0;
+}
+
+.event-form__input input:focus {
+  outline: 0;
+}
+.event-form__input:hover > input {
+  color: white;
+}
+
+.event-form__input:hover {
+  background-color: var(--skailama-input-purple);
+  color: white;
+  border: 1px solid var(--border-color);
 }
 
 .event-form__button {
@@ -35,6 +55,10 @@
   color: whitesmoke;
 }
 
+.event-form__button:hover {
+  background-color: var(--skailama-input-purple);
+}
+
 .event-form__date-time {
   width: 100%;
   gap: 10px;
@@ -45,9 +69,13 @@
 }
 
 .event-form__time-input {
-  width: 150px;
+  width: 125px;
 }
 
-.event-form__date-time input {
-  padding-left: 35px;
+.event-form__clock_icon {
+  font-size: 25px;
 }
+
+/* .event-form__date-time input {
+  padding-left: 35px;
+} */

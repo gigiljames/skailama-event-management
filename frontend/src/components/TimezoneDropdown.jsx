@@ -61,6 +61,11 @@ function TimezoneDropdown({ selectedTimezone, setSelectedTimezone }) {
             />
           </div>
           <div className="timezone-dropdown__options">
+            {tzones.length === 0 && (
+              <p className="timezone-dropdown__no-profiles">
+                No timezone found.
+              </p>
+            )}
             {tzones.map((tz) => (
               <div
                 className="timezone-dropdown__option flex flex-row items-center"

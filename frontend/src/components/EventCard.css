@@ -98,3 +98,8 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.event-card__button-group button:hover {
+  color: white;
+  background-color: var(--skailama-input-purple);
+}
